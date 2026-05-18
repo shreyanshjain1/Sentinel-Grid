@@ -71,7 +71,4 @@ sentinel-grid/
 └── README.md
 ```
 
-6. Use the default output settings.
-7. Click **Deploy**.
 
-No environment variables are needed because this is a frontend-only project.
