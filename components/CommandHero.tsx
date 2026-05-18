@@ -25,11 +25,11 @@ function SignalOrb({ className, label }: { className: string; label: string }) {
 
 export function CommandHero() {
   return (
-    <section className="noise relative overflow-hidden rounded-[2rem] border border-stone-100/10 bg-[#17130f] p-5 shadow-[0_40px_110px_rgba(0,0,0,.42)] sm:rounded-[2.4rem] md:p-8 xl:p-10">
+    <section className="noise relative min-w-0 overflow-hidden rounded-[1.7rem] border border-stone-100/10 bg-[#17130f] p-4 shadow-[0_40px_110px_rgba(0,0,0,.42)] sm:rounded-[2.2rem] sm:p-5 md:p-7 2xl:p-10">
       <div className="absolute -left-20 top-16 h-52 w-52 rounded-full bg-[#e24637]/25 blur-3xl" />
       <div className="absolute -right-20 -top-16 h-72 w-72 rounded-full bg-[#f2b84b]/20 blur-3xl" />
 
-      <div className="relative z-10 grid gap-8 xl:grid-cols-[minmax(0,1fr)_460px] xl:items-center 2xl:grid-cols-[minmax(0,1fr)_520px]">
+      <div className="relative z-10 grid min-w-0 gap-6 lg:gap-8 2xl:grid-cols-[minmax(0,1fr)_500px] 2xl:items-center">
         <div className="min-w-0">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
@@ -43,7 +43,7 @@ export function CommandHero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.08 }}
-            className="max-w-4xl text-[3rem] font-black uppercase leading-[0.9] tracking-[-0.065em] text-stone-50 sm:text-6xl md:text-7xl 2xl:text-8xl"
+            className="max-w-4xl break-words text-[clamp(2.7rem,11vw,6rem)] font-black uppercase leading-[0.9] tracking-[-0.065em] text-stone-50 md:text-[clamp(4.6rem,8vw,7rem)] 2xl:text-8xl"
           >
             Real-time protection for high-risk teams.
           </motion.h2>
@@ -57,7 +57,7 @@ export function CommandHero() {
             SentinelGrid gives operators a clear view of identity risk, endpoint activity, cloud exposure, and response priority from one calm command surface.
           </motion.p>
 
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <button className="group inline-flex items-center justify-center gap-2 rounded-2xl bg-[#f2b84b] px-5 py-3 font-black text-black shadow-[0_18px_50px_rgba(242,184,75,.25)] transition hover:-translate-y-1 hover:bg-[#ffd36b]">
               Review command center <ArrowRight className="transition group-hover:translate-x-1" size={18} />
             </button>
@@ -67,7 +67,7 @@ export function CommandHero() {
           </div>
         </div>
 
-        <div className="perspective-1000 relative min-h-[340px] overflow-hidden rounded-[2rem] border border-stone-100/10 bg-[#0d0d0c]/70 p-5 sm:min-h-[420px] sm:rounded-[2.2rem] sm:p-6">
+        <div className="perspective-1000 relative min-h-[320px] min-w-0 overflow-hidden rounded-[1.7rem] border border-stone-100/10 bg-[#0d0d0c]/70 p-4 sm:min-h-[390px] sm:rounded-[2rem] sm:p-5 md:min-h-[420px] md:p-6">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(242,184,75,.18),transparent_48%)]" />
           <div className="scan-line absolute left-0 top-0 h-32 w-full bg-gradient-to-b from-transparent via-[#f2b84b]/18 to-transparent" />
 
@@ -90,7 +90,7 @@ export function CommandHero() {
             className="absolute left-1/2 top-1/2 h-60 w-60 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-[#f2b84b]/35 sm:h-72 sm:w-72"
           />
 
-          <div className="absolute bottom-5 left-5 right-5 rounded-[1.5rem] border border-white/10 bg-black/55 p-4 backdrop-blur-xl">
+          <div className="absolute bottom-4 left-4 right-4 rounded-[1.5rem] border border-white/10 bg-black/55 p-4 backdrop-blur-xl sm:bottom-5 sm:left-5 sm:right-5">
             <div className="flex items-center justify-between gap-3">
               <div>
                 <p className="text-xs uppercase tracking-[0.28em] text-[#f2b84b]">Edge protection</p>
@@ -102,7 +102,7 @@ export function CommandHero() {
         </div>
       </div>
 
-      <div className="relative z-10 mt-7 overflow-hidden rounded-2xl border-y border-white/10 bg-black/30 py-3">
+      <div className="relative z-10 mt-6 overflow-hidden rounded-2xl border-y border-white/10 bg-black/30 py-3 sm:mt-7">
         <div className="marquee-track flex w-max gap-8 whitespace-nowrap text-xs font-black uppercase tracking-[0.28em] text-[#f2b84b] sm:text-sm">
           {[...tickerItems, ...tickerItems, ...tickerItems].map((item, index) => (
             <span key={`${item}-${index}`} className="inline-flex items-center gap-3">
