@@ -26,11 +26,6 @@ The project presents a polished command-center experience with responsive produc
 - Framer Motion
 - Lucide React
 
-## Product Sections
-
-### Pulse
-A high-impact command overview with operational metrics, live signal intake, response board, and animated security visuals.
-
 ### Threats
 A focused threat desk for filtering detections, reviewing active incidents, searching cases, and inspecting selected case details.
 
@@ -43,3 +38,35 @@ A guided response area for selecting runbooks, tracking steps, and presenting re
 ## Purpose
 
 This project is designed as a frontend portfolio piece that demonstrates UI composition, responsive layouts, stateful interactions, animation polish, and component-driven product design.
+=======
+### Asset Graph
+A decorative security graph panel with hoverable nodes and integration cards.
+=======
+```txt
+sentinel-grid/
+fix/responsive-dashboard-layout
+├── app/
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx
+├── components/
+│   ├── AlertStream.tsx
+│   ├── AnimatedCard.tsx
+│   ├── CommandHero.tsx
+│   ├── DefenseCards.tsx
+│   ├── HoverLab.tsx
+│   ├── MainNav.tsx
+│   ├── ScenarioTabs.tsx
+│   └── StickySidebar.tsx
+├── data/
+│   └── security-data.ts
+├── lib/
+│   └── utils.ts
+├── public/
+├── eslint.config.mjs
+├── next.config.mjs
+├── package.json
+├── postcss.config.mjs
+├── tailwind.config.ts
+└── tsconfig.json
+```
