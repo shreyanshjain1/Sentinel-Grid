@@ -14,7 +14,7 @@ export function MainNav({ activeSection, onSectionChange }: MainNavProps) {
     <motion.header
       initial={{ opacity: 0, y: -14 }}
       animate={{ opacity: 1, y: 0 }}
-      className="sticky top-3 z-40 rounded-[1.5rem] border border-stone-100/10 bg-[#17130f]/80 px-3 py-3 shadow-2xl backdrop-blur-2xl sm:top-4 sm:rounded-[1.7rem] sm:px-4 md:px-5"
+      className="sticky top-3 z-40 rounded-[1.5rem] border border-stone-100/10 bg-[#17130f]/80 px-3 py-3 shadow-[0_20px_70px_rgba(0,0,0,.35)] backdrop-blur-2xl sm:top-4 sm:rounded-[1.7rem] sm:px-4 md:px-5"
     >
       <div className="flex items-center justify-between gap-3">
         <div className="flex min-w-0 items-center gap-3 lg:hidden">
@@ -44,7 +44,7 @@ export function MainNav({ activeSection, onSectionChange }: MainNavProps) {
         </div>
       </div>
 
-      <div className="mt-3 grid grid-cols-4 gap-2 lg:hidden">
+      <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4 lg:hidden">
         {sectionKeys.map((section) => {
           const selected = activeSection === section;
           return (
@@ -52,7 +52,7 @@ export function MainNav({ activeSection, onSectionChange }: MainNavProps) {
               key={section}
               type="button"
               onClick={() => onSectionChange(section)}
-              className={`rounded-2xl px-2 py-2 text-xs font-black transition sm:text-sm ${
+              className={`rounded-2xl px-3 py-2.5 text-xs font-black transition sm:text-sm ${
                 selected
                   ? "bg-[#f2b84b] text-black"
                   : "bg-white/[0.06] text-stone-400 hover:bg-white/[0.1] hover:text-stone-50"

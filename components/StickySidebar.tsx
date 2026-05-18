@@ -9,7 +9,7 @@ type StickySidebarProps = {
 
 export function StickySidebar({ activeSection, onSectionChange }: StickySidebarProps) {
   return (
-    <aside className="sticky top-0 hidden h-screen w-[292px] shrink-0 border-r border-stone-100/10 bg-black/20 p-5 backdrop-blur-3xl lg:block">
+    <aside className="sticky top-0 hidden h-screen w-[292px] shrink-0 border-r border-stone-100/10 bg-black/24 p-5 backdrop-blur-3xl lg:block">
       <div className="flex h-full flex-col">
         <div className="mb-8 flex items-center gap-3">
           <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#f2b84b] text-black shadow-[0_18px_50px_rgba(242,184,75,.3)]">
@@ -37,10 +37,10 @@ export function StickySidebar({ activeSection, onSectionChange }: StickySidebarP
                 onClick={() => {
                   if (isSectionKey(item.label)) onSectionChange(item.label);
                 }}
-                className={`group relative flex w-full items-center gap-3 overflow-hidden rounded-2xl px-4 py-3 text-left text-sm font-semibold transition ${
+                className={`group relative flex w-full items-center gap-3 overflow-hidden rounded-2xl px-4 py-3.5 text-left text-sm font-semibold transition ${
                   selected
                     ? "bg-[#f2b84b] text-black shadow-[0_18px_50px_rgba(242,184,75,.22)]"
-                    : "text-stone-400 hover:bg-white/[0.06] hover:text-stone-50"
+                    : "text-stone-400 hover:-translate-y-0.5 hover:bg-white/[0.06] hover:text-stone-50"
                 }`}
               >
                 <item.icon size={18} />
@@ -51,7 +51,7 @@ export function StickySidebar({ activeSection, onSectionChange }: StickySidebarP
           })}
         </nav>
 
-        <div className="mt-7 rounded-[1.8rem] border border-[#f2b84b]/20 bg-[#f2b84b]/10 p-4">
+        <div className="mt-7 rounded-[1.8rem] border border-[#f2b84b]/20 bg-[#f2b84b]/10 p-4 shadow-[0_18px_60px_rgba(242,184,75,.08)]">
           <div className="mb-3 flex items-center gap-2 text-[#ffe1a0]">
             <Bell size={18} />
             <p className="text-sm font-black">Live escalation</p>

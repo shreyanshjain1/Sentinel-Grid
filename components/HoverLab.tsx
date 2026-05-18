@@ -4,7 +4,7 @@ import { MousePointer2 } from "lucide-react";
 export function HoverLab() {
   return (
     <section className="min-w-0 space-y-5 sm:space-y-6">
-      <div className="shell-card relative min-h-[360px] min-w-0 overflow-hidden rounded-[1.7rem] p-4 sm:rounded-[2rem] sm:p-5 md:min-h-[420px] md:p-6">
+      <div className="shell-card relative min-h-[390px] min-w-0 overflow-hidden rounded-[1.7rem] p-4 sm:rounded-[2rem] sm:p-5 md:min-h-[450px] md:p-6">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(242,184,75,.15),transparent_38%)]" />
         <div className="relative z-10 mb-5 flex min-w-0 items-center justify-between gap-4">
           <div className="min-w-0">
@@ -14,7 +14,7 @@ export function HoverLab() {
           <MousePointer2 className="shrink-0 text-[#f2b84b]" />
         </div>
 
-        <div className="relative z-10 h-[260px] min-w-0 overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#0d0d0c] sm:h-[285px] sm:rounded-[1.8rem] md:h-[320px]">
+        <div className="relative z-10 h-[280px] min-w-0 overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#0d0d0c] sm:h-[305px] sm:rounded-[1.8rem] md:h-[340px]">
           <div className="absolute inset-0 opacity-30 [background-image:radial-gradient(circle,rgba(255,255,255,.25)_1px,transparent_1px)] [background-size:22px_22px]" />
           <div className="absolute left-1/2 top-1/2 h-44 w-44 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#f2b84b]/20 sm:h-52 sm:w-52" />
           <div className="absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#e24637]/30 bg-[#e24637]/10 sm:h-28 sm:w-28" />
@@ -35,7 +35,7 @@ export function HoverLab() {
 
       <div className="grid min-w-0 gap-3 sm:grid-cols-2">
         {integrations.map((item) => (
-          <div key={item.name} className="group min-w-0 rounded-[1.35rem] border border-white/10 bg-white/[0.05] p-4 transition hover:-translate-y-1 hover:bg-white/[0.08] sm:rounded-[1.6rem]">
+          <div key={item.name} className="group min-h-[96px] min-w-0 rounded-[1.35rem] border border-white/10 bg-white/[0.05] p-4 transition hover:-translate-y-1 hover:bg-white/[0.08] sm:rounded-[1.6rem]">
             <div className="flex min-w-0 items-center gap-3">
               <div className="shrink-0 rounded-2xl bg-[#f2b84b]/12 p-3 text-[#ffe1a0] ring-1 ring-[#f2b84b]/20">
                 <item.icon size={19} />
