@@ -1,4 +1,4 @@
-import { Bell, Search, ShieldHalf, Sparkles } from "lucide-react";
+import { Bell, Search, ShieldHalf, Activity } from "lucide-react";
 import { sidebarLinks } from "@/data/security-data";
 
 export function StickySidebar() {
@@ -11,13 +11,13 @@ export function StickySidebar() {
           </div>
           <div>
             <p className="text-lg font-black tracking-tight">SentinelGrid</p>
-            <p className="text-xs uppercase tracking-[0.32em] text-stone-400">Visual SOC</p>
+            <p className="text-xs uppercase tracking-[0.32em] text-stone-400">Security Ops</p>
           </div>
         </div>
 
         <div className="mb-6 flex items-center gap-2 rounded-2xl border border-stone-100/10 bg-stone-950/40 px-3 py-3 text-sm text-stone-400">
           <Search size={16} />
-          <span>Search visuals...</span>
+          <span>Search assets...</span>
         </div>
 
         <nav className="space-y-2">
@@ -41,20 +41,20 @@ export function StickySidebar() {
         <div className="mt-7 rounded-[1.8rem] border border-[#f2b84b]/20 bg-[#f2b84b]/10 p-4">
           <div className="mb-3 flex items-center gap-2 text-[#ffe1a0]">
             <Bell size={18} />
-            <p className="text-sm font-black">Popup mode armed</p>
+            <p className="text-sm font-black">Live escalation</p>
           </div>
-          <p className="text-xs leading-5 text-stone-300">Random threat cards, hover tips, and decorative alerts are enabled for a stronger portfolio screenshot.</p>
+          <p className="text-xs leading-5 text-stone-300">Critical detections are grouped by asset owner, severity, and containment status.</p>
         </div>
 
         <div className="mt-auto rounded-[1.8rem] bg-stone-950/60 p-4 ring-1 ring-white/10">
           <div className="mb-3 flex items-center gap-2 text-stone-200">
-            <Sparkles size={17} className="text-[#f2b84b]" />
-            <span className="text-sm font-bold">Design-first build</span>
+            <Activity size={17} className="text-[#f2b84b]" />
+            <span className="text-sm font-bold">Coverage health</span>
           </div>
           <div className="h-2 overflow-hidden rounded-full bg-white/10">
             <div className="h-full w-[84%] rounded-full bg-gradient-to-r from-[#f2b84b] to-[#e24637]" />
           </div>
-          <p className="mt-3 text-xs text-stone-500">84% screenshot energy</p>
+          <p className="mt-3 text-xs text-stone-500">84% monitored estate</p>
         </div>
       </div>
     </aside>
