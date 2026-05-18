@@ -1,0 +1,62 @@
+import { Bell, Search, ShieldHalf, Sparkles } from "lucide-react";
+import { sidebarLinks } from "@/data/security-data";
+
+export function StickySidebar() {
+  return (
+    <aside className="sticky top-0 hidden h-screen w-[292px] shrink-0 border-r border-stone-100/10 bg-black/20 p-5 backdrop-blur-3xl lg:block">
+      <div className="flex h-full flex-col">
+        <div className="mb-8 flex items-center gap-3">
+          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#f2b84b] text-black shadow-[0_18px_50px_rgba(242,184,75,.3)]">
+            <ShieldHalf size={25} />
+          </div>
+          <div>
+            <p className="text-lg font-black tracking-tight">SentinelGrid</p>
+            <p className="text-xs uppercase tracking-[0.32em] text-stone-400">Visual SOC</p>
+          </div>
+        </div>
+
+        <div className="mb-6 flex items-center gap-2 rounded-2xl border border-stone-100/10 bg-stone-950/40 px-3 py-3 text-sm text-stone-400">
+          <Search size={16} />
+          <span>Search visuals...</span>
+        </div>
+
+        <nav className="space-y-2">
+          {sidebarLinks.map((item) => (
+            <a
+              key={item.label}
+              href="#"
+              className={`group relative flex items-center gap-3 overflow-hidden rounded-2xl px-4 py-3 text-sm font-semibold transition ${
+                item.active
+                  ? "bg-[#f2b84b] text-black shadow-[0_18px_50px_rgba(242,184,75,.22)]"
+                  : "text-stone-400 hover:bg-white/[0.06] hover:text-stone-50"
+              }`}
+            >
+              <item.icon size={18} />
+              {item.label}
+              {!item.active && <span className="ml-auto h-2 w-2 rounded-full bg-stone-700 transition group-hover:bg-[#f2b84b]" />}
+            </a>
+          ))}
+        </nav>
+
+        <div className="mt-7 rounded-[1.8rem] border border-[#f2b84b]/20 bg-[#f2b84b]/10 p-4">
+          <div className="mb-3 flex items-center gap-2 text-[#ffe1a0]">
+            <Bell size={18} />
+            <p className="text-sm font-black">Popup mode armed</p>
+          </div>
+          <p className="text-xs leading-5 text-stone-300">Random threat cards, hover tips, and decorative alerts are enabled for a stronger portfolio screenshot.</p>
+        </div>
+
+        <div className="mt-auto rounded-[1.8rem] bg-stone-950/60 p-4 ring-1 ring-white/10">
+          <div className="mb-3 flex items-center gap-2 text-stone-200">
+            <Sparkles size={17} className="text-[#f2b84b]" />
+            <span className="text-sm font-bold">Design-first build</span>
+          </div>
+          <div className="h-2 overflow-hidden rounded-full bg-white/10">
+            <div className="h-full w-[84%] rounded-full bg-gradient-to-r from-[#f2b84b] to-[#e24637]" />
+          </div>
+          <p className="mt-3 text-xs text-stone-500">84% screenshot energy</p>
+        </div>
+      </div>
+    </aside>
+  );
+}

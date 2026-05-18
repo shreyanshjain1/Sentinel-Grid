@@ -6,20 +6,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#060914",
-        panel: "#0b1020",
-        panelSoft: "#10172a",
-        cyanGlow: "#22d3ee",
-        violetGlow: "#a78bfa",
-        emeraldGlow: "#34d399",
-        dangerGlow: "#fb7185"
+        ember: "#e24637",
+        honey: "#f2b84b",
+        ink: "#11110f",
+        graphite: "#17130f"
       },
       boxShadow: {
-        glow: "0 0 60px rgba(34, 211, 238, 0.18)",
-        card: "0 24px 80px rgba(0, 0, 0, 0.35)"
-      },
-      backgroundImage: {
-        "radial-grid": "radial-gradient(circle at top left, rgba(34,211,238,.22), transparent 32%), radial-gradient(circle at top right, rgba(167,139,250,.18), transparent 35%), linear-gradient(180deg, #060914 0%, #080b16 42%, #050711 100%)"
+        soft: "0 28px 80px rgba(0, 0, 0, 0.34)",
+        honey: "0 18px 50px rgba(242, 184, 75, 0.25)"
       }
     }
   },
