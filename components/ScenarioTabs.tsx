@@ -14,8 +14,7 @@ import {
   Play,
   RotateCcw,
   ShieldCheck,
-  Sparkles,
-  UserRoundCheck
+  Sparkles
 } from "lucide-react";
 import { useMemo, useState } from "react";
 import { scenarios } from "@/data/security-data";
@@ -27,21 +26,24 @@ const responseActions = [
     key: "brief",
     label: "Open brief",
     title: "Executive packet",
-    description: "Impact summary, owner notes, and containment evidence are ready for review.",
+    description:
+      "Impact summary, owner notes, and containment evidence are ready for review.",
     icon: FileText
   },
   {
     key: "contain",
     label: "Stage control",
     title: "Containment lane",
-    description: "Isolation, session checks, and rollback actions are prepared as a controlled workflow.",
+    description:
+      "Isolation, session checks, and rollback actions are prepared as a controlled workflow.",
     icon: LockKeyhole
   },
   {
     key: "handoff",
     label: "Team handoff",
     title: "Response channel",
-    description: "The active case can be handed to the next operator with context and task ownership intact.",
+    description:
+      "The active case can be handed to the next operator with context and task ownership intact.",
     icon: MessageSquareText
   }
 ] as const;
@@ -50,12 +52,17 @@ type ResponseActionKey = (typeof responseActions)[number]["key"];
 
 export function ScenarioTabs() {
   const [activeScenario, setActiveScenario] = useState(0);
-  const [activeAction, setActiveAction] = useState<ResponseActionKey>("brief");
+  const [activeAction, setActiveAction] =
+    useState<ResponseActionKey>("brief");
   const [completed, setCompleted] = useState<number[]>([0, 1]);
   const [queueIndex, setQueueIndex] = useState(1);
 
   const scenario = scenarios[activeScenario];
-  const activeActionMeta = responseActions.find((item) => item.key === activeAction) ?? responseActions[0];
+
+  const activeActionMeta =
+    responseActions.find((item) => item.key === activeAction) ??
+    responseActions[0];
+
   const ActiveActionIcon = activeActionMeta.icon;
 
   const completion = useMemo(() => {
@@ -95,19 +102,24 @@ export function ScenarioTabs() {
       <div className="relative z-10 mb-5 grid gap-4 xl:grid-cols-[minmax(0,.85fr)_minmax(320px,1.15fr)] xl:items-end">
         <div className="min-w-0">
           <div className="inline-flex items-center gap-2 rounded-full border border-[#f2b84b]/20 bg-[#f2b84b]/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-[#f2b84b]">
-            <Sparkles size={14} /> Active playbook
+            <Sparkles size={14} />
+            Active playbook
           </div>
+
           <h3 className="mt-3 max-w-xl text-2xl font-black leading-tight tracking-[-0.035em] text-stone-50 sm:text-3xl md:text-4xl">
             Response board
           </h3>
+
           <p className="mt-2 max-w-2xl text-sm leading-6 text-stone-400">
-            Follow the case path, confirm response tasks, and move the queue through the next security action.
+            Follow the case path, confirm response tasks, and move the queue
+            through the next security action.
           </p>
         </div>
 
         <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
           {scenarios.map((item, index) => {
             const selected = activeScenario === index;
+
             return (
               <button
                 key={item.tab}
@@ -120,13 +132,22 @@ export function ScenarioTabs() {
                 }`}
               >
                 <div className="flex items-center justify-between gap-2">
-                  <span className="truncate text-sm font-black">{item.tab}</span>
+                  <span className="truncate text-sm font-black">
+                    {item.tab}
+                  </span>
                   <ChevronRight
                     size={15}
-                    className={`shrink-0 transition group-hover:translate-x-0.5 ${selected ? "text-black" : "text-stone-600"}`}
+                    className={`shrink-0 transition group-hover:translate-x-0.5 ${
+                      selected ? "text-black" : "text-stone-600"
+                    }`}
                   />
                 </div>
-                <p className={`mt-1 truncate text-[11px] font-semibold ${selected ? "text-black/60" : "text-stone-500"}`}>
+
+                <p
+                  className={`mt-1 truncate text-[11px] font-semibold ${
+                    selected ? "text-black/60" : "text-stone-500"
+                  }`}
+                >
                   {item.badge} lane
                 </p>
               </button>
@@ -146,16 +167,20 @@ export function ScenarioTabs() {
           <div className="border-b border-white/10 p-4 sm:p-5">
             <div className="flex flex-wrap items-center gap-2">
               <span className="inline-flex items-center gap-2 rounded-full bg-[#e24637]/15 px-3 py-1 text-[11px] font-black uppercase tracking-[0.18em] text-[#ffd4cf] ring-1 ring-[#e24637]/25">
-                <scenario.icon size={14} /> {scenario.badge}
+                <scenario.icon size={14} />
+                {scenario.badge}
               </span>
+
               <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-semibold text-stone-400">
-                <Clock3 size={14} /> Updated now
+                <Clock3 size={14} />
+                Updated now
               </span>
             </div>
 
             <h4 className="mt-5 max-w-3xl text-[clamp(2rem,4.4vw,3.7rem)] font-black leading-[0.98] tracking-[-0.055em] text-stone-50">
               {scenario.title}
             </h4>
+
             <p className="mt-4 max-w-2xl text-sm leading-6 text-stone-400 sm:text-base">
               {scenario.subtitle}
             </p>
@@ -164,6 +189,7 @@ export function ScenarioTabs() {
           <div className="grid gap-3 p-4 sm:grid-cols-3 sm:p-5">
             {scenario.points.map((point, index) => {
               const done = completed.includes(index);
+
               return (
                 <button
                   key={point}
@@ -181,11 +207,15 @@ export function ScenarioTabs() {
                     ) : (
                       <Circle size={18} className="text-stone-500" />
                     )}
+
                     <span className="rounded-full bg-black/30 px-2 py-1 text-[10px] font-black uppercase tracking-[0.16em] text-stone-500">
                       0{index + 1}
                     </span>
                   </div>
-                  <p className="break-words text-sm font-bold leading-5 text-stone-100">{point}</p>
+
+                  <p className="break-words text-sm font-bold leading-5 text-stone-100">
+                    {point}
+                  </p>
                 </button>
               );
             })}
@@ -196,11 +226,14 @@ export function ScenarioTabs() {
           <div className="overflow-hidden rounded-[1.55rem] border border-white/10 bg-[#10100f]">
             <div className="flex items-start justify-between gap-4 border-b border-white/10 p-4 sm:p-5">
               <div className="min-w-0">
-                <p className="text-[11px] font-black uppercase tracking-[0.22em] text-[#f2b84b]">Queue state</p>
+                <p className="text-[11px] font-black uppercase tracking-[0.22em] text-[#f2b84b]">
+                  Queue state
+                </p>
                 <h5 className="mt-2 text-2xl font-black tracking-[-0.04em] text-stone-50">
                   {queueStates[queueIndex]}
                 </h5>
               </div>
+
               <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#f2b84b] text-black shadow-[0_20px_45px_rgba(242,184,75,.18)]">
                 <ShieldCheck size={24} />
               </div>
@@ -208,9 +241,14 @@ export function ScenarioTabs() {
 
             <div className="p-4 sm:p-5">
               <div className="mb-4 flex items-center justify-between gap-3">
-                <span className="text-sm font-bold text-stone-300">Completion</span>
-                <span className="text-sm font-black text-stone-50">{completion}%</span>
+                <span className="text-sm font-bold text-stone-300">
+                  Completion
+                </span>
+                <span className="text-sm font-black text-stone-50">
+                  {completion}%
+                </span>
               </div>
+
               <div className="h-3 overflow-hidden rounded-full bg-white/[0.07]">
                 <motion.div
                   className="h-full rounded-full bg-[#f2b84b]"
@@ -229,6 +267,7 @@ export function ScenarioTabs() {
                   Advance
                   <ArrowUpRight size={16} />
                 </button>
+
                 <button
                   type="button"
                   onClick={resetBoard}
@@ -243,14 +282,19 @@ export function ScenarioTabs() {
 
           <div className="overflow-hidden rounded-[1.55rem] border border-white/10 bg-white/[0.04]">
             <div className="border-b border-white/10 p-4 sm:p-5">
-              <p className="text-[11px] font-black uppercase tracking-[0.22em] text-stone-500">Available actions</p>
-              <h5 className="mt-2 text-xl font-black tracking-[-0.035em] text-stone-50">Operator controls</h5>
+              <p className="text-[11px] font-black uppercase tracking-[0.22em] text-stone-500">
+                Available actions
+              </p>
+              <h5 className="mt-2 text-xl font-black tracking-[-0.035em] text-stone-50">
+                Operator controls
+              </h5>
             </div>
 
             <div className="grid gap-2 p-3 sm:p-4">
               {responseActions.map((action) => {
                 const Icon = action.icon;
                 const selected = activeAction === action.key;
+
                 return (
                   <button
                     key={action.key}
@@ -262,14 +306,28 @@ export function ScenarioTabs() {
                         : "border-white/10 bg-black/20 hover:border-white/20 hover:bg-white/[0.065]"
                     }`}
                   >
-                    <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl ${selected ? "bg-[#f2b84b] text-black" : "bg-white/[0.06] text-stone-300"}`}>
+                    <div
+                      className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl ${
+                        selected
+                          ? "bg-[#f2b84b] text-black"
+                          : "bg-white/[0.06] text-stone-300"
+                      }`}
+                    >
                       <Icon size={18} />
                     </div>
+
                     <div className="min-w-0 flex-1">
-                      <p className="truncate text-sm font-black text-stone-100">{action.label}</p>
-                      <p className="mt-1 truncate text-xs text-stone-500">{action.title}</p>
+                      <p className="truncate text-sm font-black text-stone-100">
+                        {action.label}
+                      </p>
+                      <p className="mt-1 truncate text-xs text-stone-500">
+                        {action.title}
+                      </p>
                     </div>
-                    {selected && <Check size={17} className="shrink-0 text-[#f2b84b]" />}
+
+                    {selected && (
+                      <Check size={17} className="shrink-0 text-[#f2b84b]" />
+                    )}
                   </button>
                 );
               })}
@@ -288,9 +346,14 @@ export function ScenarioTabs() {
                   <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#f2b84b] text-black">
                     <ActiveActionIcon size={18} />
                   </div>
+
                   <div className="min-w-0">
-                    <h6 className="text-lg font-black text-stone-50">{activeActionMeta.title}</h6>
-                    <p className="mt-2 text-sm leading-6 text-stone-400">{activeActionMeta.description}</p>
+                    <h6 className="text-lg font-black text-stone-50">
+                      {activeActionMeta.title}
+                    </h6>
+                    <p className="mt-2 text-sm leading-6 text-stone-400">
+                      {activeActionMeta.description}
+                    </p>
                   </div>
                 </div>
 

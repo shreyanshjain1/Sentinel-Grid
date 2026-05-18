@@ -25,6 +25,7 @@ The project presents a modern command center experience with a sticky desktop si
 
 ## Product Sections
 
+feat/redesign-alert-stream-custom-cursor
 ### Command Overview
 A high-impact dashboard header with status indicators, operational metrics, and animated security visuals.
 
@@ -39,3 +40,33 @@ A responsive response module with selectable scenarios, checklist interactions, 
 
 ### Asset Graph
 A decorative security graph panel with hoverable nodes and integration cards.
+=======
+```txt
+sentinel-grid/
+fix/responsive-dashboard-layout
+├── app/
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx
+├── components/
+│   ├── AlertStream.tsx
+│   ├── AnimatedCard.tsx
+│   ├── CommandHero.tsx
+│   ├── DefenseCards.tsx
+│   ├── HoverLab.tsx
+│   ├── MainNav.tsx
+│   ├── ScenarioTabs.tsx
+│   └── StickySidebar.tsx
+├── data/
+│   └── security-data.ts
+├── lib/
+│   └── utils.ts
+├── public/
+├── eslint.config.mjs
+├── next.config.mjs
+├── package.json
+├── postcss.config.mjs
+├── tailwind.config.ts
+└── tsconfig.json
+```
+
