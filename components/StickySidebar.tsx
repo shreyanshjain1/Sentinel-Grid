@@ -1,7 +1,13 @@
-import { Bell, Search, ShieldHalf, Activity } from "lucide-react";
+import { Activity, Bell, Search, ShieldHalf } from "lucide-react";
 import { sidebarLinks } from "@/data/security-data";
+import { isSectionKey, type SectionKey } from "@/lib/navigation";
 
-export function StickySidebar() {
+type StickySidebarProps = {
+  activeSection: SectionKey;
+  onSectionChange: (section: SectionKey) => void;
+};
+
+export function StickySidebar({ activeSection, onSectionChange }: StickySidebarProps) {
   return (
     <aside className="sticky top-0 hidden h-screen w-[292px] shrink-0 border-r border-stone-100/10 bg-black/20 p-5 backdrop-blur-3xl lg:block">
       <div className="flex h-full flex-col">
@@ -21,21 +27,28 @@ export function StickySidebar() {
         </div>
 
         <nav className="space-y-2">
-          {sidebarLinks.map((item) => (
-            <a
-              key={item.label}
-              href="#"
-              className={`group relative flex items-center gap-3 overflow-hidden rounded-2xl px-4 py-3 text-sm font-semibold transition ${
-                item.active
-                  ? "bg-[#f2b84b] text-black shadow-[0_18px_50px_rgba(242,184,75,.22)]"
-                  : "text-stone-400 hover:bg-white/[0.06] hover:text-stone-50"
-              }`}
-            >
-              <item.icon size={18} />
-              {item.label}
-              {!item.active && <span className="ml-auto h-2 w-2 rounded-full bg-stone-700 transition group-hover:bg-[#f2b84b]" />}
-            </a>
-          ))}
+          {sidebarLinks.map((item) => {
+            const selected = activeSection === item.label;
+
+            return (
+              <button
+                key={item.label}
+                type="button"
+                onClick={() => {
+                  if (isSectionKey(item.label)) onSectionChange(item.label);
+                }}
+                className={`group relative flex w-full items-center gap-3 overflow-hidden rounded-2xl px-4 py-3 text-left text-sm font-semibold transition ${
+                  selected
+                    ? "bg-[#f2b84b] text-black shadow-[0_18px_50px_rgba(242,184,75,.22)]"
+                    : "text-stone-400 hover:bg-white/[0.06] hover:text-stone-50"
+                }`}
+              >
+                <item.icon size={18} />
+                {item.label}
+                {!selected && <span className="ml-auto h-2 w-2 rounded-full bg-stone-700 transition group-hover:bg-[#f2b84b]" />}
+              </button>
+            );
+          })}
         </nav>
 
         <div className="mt-7 rounded-[1.8rem] border border-[#f2b84b]/20 bg-[#f2b84b]/10 p-4">

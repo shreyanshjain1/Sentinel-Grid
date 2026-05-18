@@ -2,8 +2,14 @@
 
 import { motion } from "framer-motion";
 import { Bell, Menu, Radar, ShieldHalf } from "lucide-react";
+import { sectionKeys, type SectionKey } from "@/lib/navigation";
 
-export function MainNav() {
+type MainNavProps = {
+  activeSection: SectionKey;
+  onSectionChange: (section: SectionKey) => void;
+};
+
+export function MainNav({ activeSection, onSectionChange }: MainNavProps) {
   return (
     <motion.header
       initial={{ opacity: 0, y: -14 }}
@@ -21,9 +27,9 @@ export function MainNav() {
           </div>
         </div>
 
-        <div className="hidden lg:block">
+        <div className="hidden min-w-0 lg:block">
           <p className="text-xs uppercase tracking-[0.34em] text-[#f2b84b]">Security operations platform</p>
-          <h1 className="text-xl font-black tracking-tight text-stone-50">Threat Command Center</h1>
+          <h1 className="text-xl font-black tracking-tight text-stone-50">{activeSection} Command Center</h1>
         </div>
 
         <div className="ml-auto flex items-center gap-2 sm:gap-3">
@@ -36,6 +42,26 @@ export function MainNav() {
           </button>
           <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-stone-50 text-sm font-black text-black sm:h-11 sm:w-11">SJ</div>
         </div>
+      </div>
+
+      <div className="mt-3 grid grid-cols-4 gap-2 lg:hidden">
+        {sectionKeys.map((section) => {
+          const selected = activeSection === section;
+          return (
+            <button
+              key={section}
+              type="button"
+              onClick={() => onSectionChange(section)}
+              className={`rounded-2xl px-2 py-2 text-xs font-black transition sm:text-sm ${
+                selected
+                  ? "bg-[#f2b84b] text-black"
+                  : "bg-white/[0.06] text-stone-400 hover:bg-white/[0.1] hover:text-stone-50"
+              }`}
+            >
+              {section}
+            </button>
+          );
+        })}
       </div>
     </motion.header>
   );
