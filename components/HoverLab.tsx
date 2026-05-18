@@ -4,17 +4,17 @@ import { MousePointer2 } from "lucide-react";
 export function HoverLab() {
   return (
     <section className="space-y-6">
-      <div className="shell-card relative min-h-[430px] overflow-hidden rounded-[2.2rem] p-5 md:p-6">
+      <div className="shell-card relative min-h-[390px] overflow-hidden rounded-[2rem] p-5 sm:rounded-[2.2rem] md:min-h-[430px] md:p-6">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(242,184,75,.15),transparent_38%)]" />
         <div className="relative z-10 mb-5 flex items-center justify-between gap-4">
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.3em] text-[#f2b84b]">Hover lab</p>
-            <h3 className="mt-2 text-2xl font-black tracking-tight">Pop-up node map</h3>
+            <p className="text-xs font-black uppercase tracking-[0.3em] text-[#f2b84b]">Asset graph</p>
+            <h3 className="mt-2 text-2xl font-black tracking-tight">Exposure map</h3>
           </div>
           <MousePointer2 className="text-[#f2b84b]" />
         </div>
 
-        <div className="relative z-10 h-[320px] overflow-hidden rounded-[1.8rem] border border-white/10 bg-[#0d0d0c]">
+        <div className="relative z-10 h-[285px] overflow-hidden rounded-[1.8rem] border border-white/10 bg-[#0d0d0c] md:h-[320px]">
           <div className="absolute inset-0 opacity-30 [background-image:radial-gradient(circle,rgba(255,255,255,.25)_1px,transparent_1px)] [background-size:22px_22px]" />
           <div className="absolute left-1/2 top-1/2 h-52 w-52 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#f2b84b]/20" />
           <div className="absolute left-1/2 top-1/2 h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#e24637]/30 bg-[#e24637]/10" />
@@ -45,7 +45,7 @@ export function HoverLab() {
                 <p className="text-sm text-stone-500">{item.status}</p>
               </div>
             </div>
-            <p className="mt-3 hidden rounded-2xl bg-black/30 px-3 py-2 text-xs text-stone-400 group-hover:block">Decorative tooltip panel for richer UI screenshots.</p>
+            <p className="mt-3 hidden rounded-2xl bg-black/30 px-3 py-2 text-xs text-stone-400 group-hover:block">{item.note}</p>
           </div>
         ))}
       </div>

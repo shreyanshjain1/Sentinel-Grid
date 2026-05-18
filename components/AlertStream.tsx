@@ -29,9 +29,11 @@ export function AlertStream() {
     <section className="grid gap-4 md:grid-cols-[1fr_1.1fr]">
       <div className="poster-card relative overflow-hidden rounded-[2rem] p-5">
         <div className="absolute -right-10 -top-10 h-36 w-36 rounded-full bg-[#e24637]/25 blur-3xl" />
-        <p className="text-xs font-black uppercase tracking-[0.3em] text-[#f2b84b]">Random popup simulator</p>
-        <h3 className="mt-3 text-2xl font-black tracking-tight">Decorative alerts appear like product UI moments.</h3>
-        <p className="mt-3 text-sm leading-6 text-stone-400">These are intentionally visual and front-end focused. They do not need a backend because the goal is to show motion, hierarchy, and polish.</p>
+        <p className="text-xs font-black uppercase tracking-[0.3em] text-[#f2b84b]">Incident queue</p>
+        <h3 className="mt-3 text-2xl font-black tracking-tight">High-signal alerts are promoted before noise.</h3>
+        <p className="mt-3 text-sm leading-6 text-stone-400">
+          The queue highlights what changed, which asset is affected, and the next response step without forcing analysts to dig through raw logs.
+        </p>
       </div>
 
       <div className="relative min-h-[178px] overflow-hidden rounded-[2rem] border border-white/10 bg-black/30 p-5">
@@ -53,9 +55,10 @@ export function AlertStream() {
                   <X size={16} className="opacity-60" />
                 </div>
                 <p className="mt-2 text-sm leading-6 opacity-80">{popup.detail}</p>
-                <div className="mt-4 flex gap-2">
-                  <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-bold">hover ready</span>
-                  <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-bold">screenshot UI</span>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {popup.tags.map((tag) => (
+                    <span key={tag} className="rounded-full bg-white/10 px-3 py-1 text-xs font-bold">{tag}</span>
+                  ))}
                 </div>
               </div>
             </div>
