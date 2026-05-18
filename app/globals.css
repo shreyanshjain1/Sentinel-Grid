@@ -24,6 +24,25 @@ body {
   background: rgba(235, 179, 64, 0.35);
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+::-webkit-scrollbar-thumb {
+  border: 2px solid rgba(17, 17, 15, 0.9);
+  border-radius: 999px;
+  background: rgba(242, 184, 75, 0.34);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(242, 184, 75, 0.58);
+}
+
 .shell-card {
   border: 1px solid rgba(255, 244, 214, 0.12);
   background: linear-gradient(145deg, rgba(255, 250, 235, 0.08), rgba(255, 255, 255, 0.035));
@@ -35,6 +54,15 @@ body {
   border: 1px solid rgba(255, 244, 214, 0.16);
   background: linear-gradient(135deg, rgba(255, 246, 224, 0.12), rgba(255, 255, 255, 0.04));
   box-shadow: 0 22px 70px rgba(0, 0, 0, 0.35);
+}
+
+.portfolio-card {
+  border: 1px solid rgba(255, 244, 214, 0.11);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.065), rgba(255, 255, 255, 0.025)),
+    rgba(12, 12, 11, 0.62);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.055);
+  backdrop-filter: blur(18px);
 }
 
 .noise:before {
@@ -109,6 +137,17 @@ body {
   select,
   [role="button"] {
     cursor: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
