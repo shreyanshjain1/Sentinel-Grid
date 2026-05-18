@@ -99,3 +99,20 @@ body {
   18%, 76% { opacity: 1; }
   50% { transform: translateY(110%); }
 }
+
+@media (hover: hover) and (pointer: fine) {
+  body,
+  button,
+  a,
+  input,
+  textarea,
+  select,
+  [role="button"] {
+    cursor: none;
+  }
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
